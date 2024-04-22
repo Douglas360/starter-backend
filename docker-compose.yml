@@ -1,0 +1,29 @@
+version: "3.2"
+services:
+  db:
+    image: mongo:4.2
+    container_name: db
+    restart: always
+    ports:
+      - 27017:27017
+    environment:
+      MONOGO_INITDB_DATABASE: admin
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: rootpassword
+#  api:
+#    image: node:latest
+#    container_name: api
+#    restart: always
+#    depends_on:
+#      - db
+#    ports:
+#      - ${SERVER_PORT}:${SERVER_PORT}
+#    volumes:
+#      - .:/usr/src
+#    working_dir: /usr/src
+#    command: yarn start
+#    logging:
+#      driver: "json-file"
+#      options:
+#        max-size: "10m"
+#        max-file: "5"
